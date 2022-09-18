@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\Cafe;
+
 
 class PostController extends Controller
 {
@@ -13,8 +14,8 @@ class PostController extends Controller
      * @param Post Postモデル
      * @return array Postモデルリスト
      */
-    public function index(Post $post)
+    public function index(Cafe $cafes)
     {
-        return $post->get();
+        return view('/index')->with(['cafes' => $cafes->get()]);  
     }
 }

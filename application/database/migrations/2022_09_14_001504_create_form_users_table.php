@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users_inf', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('sex');
-            $table->integer('age');
-            $table->timestamps();
+        Schema::create('form_users', function (Blueprint $table) {
+            $table->id();//review_id
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('form_id');
+            $table->foreign('form_id')->references('form_id')->on('forms');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_inf');
+        Schema::dropIfExists('form_users');
     }
 };

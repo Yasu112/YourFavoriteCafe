@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('user_cafes', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users_inf');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('cafe_id');
-            $table->foreign('cafe_id')->references('id')->on('cafes_inf');
+            $table->foreign('cafe_id')->references('id')->on('cafes');
         });
     }
 

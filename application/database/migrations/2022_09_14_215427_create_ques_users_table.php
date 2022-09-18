@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ques_user', function (Blueprint $table) {
+        Schema::create('ques_users', function (Blueprint $table) {
             $table->unsignedBigInteger('ques_id');
-            $table->foreign('ques_id')->references('ques_id')->on('question');
+            $table->foreign('ques_id')->references('ques_id')->on('form_questions');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users_inf');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('cafe_id');
             $table->foreign('cafe_id')->references('cafe_id')->on('forms');
             $table->unsignedBigInteger('review_id');
-            $table->foreign('review_id')->references('id')->on('form_user');
+            $table->foreign('review_id')->references('id')->on('form_users');
             $table->string('answer');
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ques_user');
+        Schema::dropIfExists('ques_users');
     }
 };
