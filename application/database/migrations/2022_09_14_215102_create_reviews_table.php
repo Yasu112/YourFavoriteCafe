@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users_inf');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('review_id');
-            $table->foreign('review_id')->references('id')->on('form_user');
+            $table->foreign('review_id')->references('id')->on('form_users');
             $table->unsignedBigInteger('cafe_id');
-            $table->foreign('cafe_id')->references('id')->on('cafes_inf');
+            $table->foreign('cafe_id')->references('id')->on('cafes');
             $table->timestamps();
         });
     }

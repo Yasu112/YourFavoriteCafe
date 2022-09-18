@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('form_user', function (Blueprint $table) {
-            $table->id();//review_id
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users_inf');
-            $table->unsignedBigInteger('form_id');
-            $table->foreign('form_id')->references('form_id')->on('forms');
+        Schema::create('cafe_questions', function (Blueprint $table) {
+            $table->unsignedBigInteger('cafe_id');
+            $table->foreign('cafe_id')->references('id')->on('cafes');
+            $table->unsignedBigInteger('ques_id');
+            $table->foreign('ques_id')->references('id')->on('questions');
+            
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_user');
+        Schema::dropIfExists('cafe_questions');
     }
 };

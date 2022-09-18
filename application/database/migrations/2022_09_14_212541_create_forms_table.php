@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->id('form_id');
             $table->unsignedBigInteger('cafe_id');
-            $table->foreign('cafe_id')->references('id')->on('cafes_inf');
+            $table->foreign('cafe_id')->references('id')->on('cafes');
         });
     }
 
